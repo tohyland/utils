@@ -58,3 +58,26 @@ set showmatch
 
 " Draw a line after 80 characters
 set colorcolumn=80
+
+" Improve searching incremental and highlight searches
+set incsearch
+set hlsearch
+
+" Folding
+set foldenable
+" Open most folds by default
+set foldlevelstart=10
+" 10 nested folds max
+set foldnestmax=10
+" syntax based folding
+set foldmethod=syntax
+
+
+" Movement - Move vertically by visual line. (Handles long lines better)
+noremap j gj
+noremap k gk
+
+" Highlight the last inserted text. Some issues with timing?
+noremap gV `[v`]
+
+" Leader shortcuts
