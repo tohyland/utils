@@ -1,7 +1,7 @@
 " tohyland's vimrc
 
-" Don't need to be compatible with vi
-set nocompatible
+" Indicate when the <leader> key has been pressed. Along with other keys
+set showcmd "not sure this is working at the moment?
 
 " Bells are annoying
 set belloff=all
@@ -25,7 +25,11 @@ Plugin 'scrooloose/nerdtree'
 " Badwolf colors
 Plugin 'sjl/badwolf'
 
+" UndoTree Plugin
+Plugin 'mbbill/undotree'
+
 call vundle#end()
+
 
 " Enable filetype again
 " filetype on -> Triggers vim to attempt syntax highlighting
@@ -56,7 +60,7 @@ set wildmenu
 " Redraw only when necessary (I.e. not during macros)
 set lazyredraw
 
-" Higlight matching [{(
+" Higlight matching [{()}]
 set showmatch
 
 " Draw a line after 80 characters
@@ -86,9 +90,20 @@ noremap gV `[v`]
 " Leader shortcuts: Create a custom namespace using the leader key to ensure
 " that my vim mappings don't interfere with the predefined ones.
 
-" Indicate wheh the <leader> key has been pressed
-set showcmd "not sure this is working at the moment?
+" Set leader to ,
+let mapleader=","
 
 " use jk as escape instead of <esc>
 inoremap jk <esc>
 
+" Bind UndotreeToggle to <leader>u
+nnoremap <leader>u :UndotreeToggle<cr>
+"
+" Bind NERDTree to <leader>nt
+nnoremap <leader>nt :NERDTree<cr>
+
+" save session
+nnoremap <leader>s :mksession<cr>
+
+" Avoid having to reload .vimrc each time
+autocmd BufWritePost .vimrc source %
