@@ -22,6 +22,9 @@ Plugin 'VundleVim/Vundle.vim'
 " NERDTree for File system exploration
 Plugin 'scrooloose/nerdtree'
 
+" Badwolf colors
+Plugin 'sjl/badwolf'
+
 call vundle#end()
 
 " Enable filetype again
@@ -29,12 +32,12 @@ call vundle#end()
 " filetype plugin on -> Load ftplugin.vim in the runtimepath
 " filetype ident on -> Loads the indent.vim in the runtimepath
 filetype plugin indent on
+"
+" Enable syntax processing
+syntax enable
 
 " Set Vim's colour scheme
 colorscheme badwolf
-
-" Enable syntax processing
-syntax enable
 
 " Set tab length for existing tabs, use 4 spaces for a tab when editing
 set tabstop=4
@@ -80,4 +83,12 @@ noremap k gk
 " Highlight the last inserted text. Some issues with timing?
 noremap gV `[v`]
 
-" Leader shortcuts
+" Leader shortcuts: Create a custom namespace using the leader key to ensure
+" that my vim mappings don't interfere with the predefined ones.
+
+" Indicate wheh the <leader> key has been pressed
+set showcmd "not sure this is working at the moment?
+
+" use jk as escape instead of <esc>
+inoremap jk <esc>
+
