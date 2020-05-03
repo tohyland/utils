@@ -28,6 +28,9 @@ Plugin 'sjl/badwolf'
 " UndoTree Plugin
 Plugin 'mbbill/undotree'
 
+" Plugin to strip trailing whitespace on only lines that are modified.
+Plugin 'axelf4/vim-strip-trailing-whitespace'
+
 call vundle#end()
 
 
@@ -44,6 +47,8 @@ syntax enable
 colorscheme badwolf
 
 " Set tab length for existing tabs, use 4 spaces for a tab when editing
+set cindent
+set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
